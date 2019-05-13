@@ -30,6 +30,17 @@ class CreatePermissionTables extends Migration
             $table->timestamps();
         });
 
+        // Insert roles
+        DB::table('roles')->insert(
+            ['name' => 'admin', 'guard_name' => 'web'] 
+        );
+        DB::table('roles')->insert(
+            ['name' => 'web_editor', 'guard_name' => 'web']
+        );
+        DB::table('roles')->insert(
+            ['name' => 'customer', 'guard_name' => 'web']
+        );
+
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames) {
             $table->unsignedInteger('permission_id');
 
