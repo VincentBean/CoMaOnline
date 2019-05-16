@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
@@ -15,16 +15,16 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('ean');
+            $table->string('ean');
             $table->string('title');
-            $table->string('brand');
-            $table->text('short_description');
-            $table->text('full_description');
-            $table->string('image_url');
-            $table->string('weight');
-            $table->string('price');
-            $table->string('subcategory');
-            $table->string('subsubcategory');
+            $table->string('brand')->nullable();
+            $table->longText('short_description')->nullable();
+            $table->longText('full_description')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('price')->default('0.00');
+            $table->string('subcategory')->nullable();
+            $table->string('subsubcategory')->nullable();
             $table->timestamps();
         });
     }
