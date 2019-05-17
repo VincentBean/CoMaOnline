@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('product_category:create')
-            ->daily();
+        $schedule->command('categories:create')
+            ->everyMinute();
+        $schedule->command('products:create')
+            ->everyMinute();
     }
 
     /**

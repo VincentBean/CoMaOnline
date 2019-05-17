@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+
 class HomeController extends Controller
 {
     /**
@@ -11,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -21,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        $products = Product::all()->random(3);
+        return view('welcome', compact('categories', 'products'));
     }
 }

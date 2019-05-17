@@ -10,6 +10,16 @@ class Category extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Product', 'product_category')->withTimestamps();
+        return $this->hasMany('App\Product', 'category_id');
+    }
+
+    public function subCategories()
+    {
+        return $this->hasMany('App\SubCategory', 'category_id');
+    }
+
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
     }
 }

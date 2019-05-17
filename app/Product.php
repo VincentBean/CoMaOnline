@@ -6,10 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['ean', 'title', 'brand', 'short_description', 'full_description', 'image_url', 'weight', 'price', 'subcategory', 'subsubcategory'];
+    protected $fillable = ['category_id', 'ean', 'title', 'brand', 'short_description', 'full_description', 'image_url', 'weight', 'price'];
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Category', 'product_category')->withTimestamps();
+        return $this->belongsTo('App\Category', 'category_id');
+    }
+
+    public function getShortDescriptionAttribute($value)
+    {
+        if (strlen($value) > 50) {
+            return substr($value, 0, 50) . '...';
+        } else {
+            return $value;
+        }
     }
 }

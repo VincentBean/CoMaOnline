@@ -18,7 +18,6 @@ if (!function_exists('xmlToJson')) {
     function xmlToJson($xml, $assoc = false)
     {
         $json = json_encode($xml);
-
         $jsonObj = json_decode($json, $assoc);
 
         return $jsonObj;

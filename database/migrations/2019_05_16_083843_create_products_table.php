@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('category_id');
             $table->string('ean');
             $table->string('title');
             $table->string('brand')->nullable();
@@ -23,8 +24,6 @@ class CreateProductsTable extends Migration
             $table->string('image_url')->nullable();
             $table->string('weight')->nullable();
             $table->string('price')->default('0.00');
-            $table->string('subcategory')->nullable();
-            $table->string('subsubcategory')->nullable();
             $table->timestamps();
         });
     }
