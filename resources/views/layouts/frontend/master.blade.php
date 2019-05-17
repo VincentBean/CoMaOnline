@@ -26,6 +26,7 @@
 
     <!-- Theme CSS -->
     <link type="text/css" href="{{asset('css/argon.min.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{asset('css/style.css')}}" rel="stylesheet">
 
 
   </head>
