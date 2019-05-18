@@ -13,7 +13,7 @@
                         {{ $categories->onEachSide(1)->links() }}
                         </div>
                         </h2>
-                        <div class="row">
+                        <div class="row no-gutter">
                         
                         @foreach($categories as $category)
                         

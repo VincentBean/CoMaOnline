@@ -93,7 +93,7 @@ body {
     margin: 0;
     text-align: left;
     color: #525f7f;
-    background-color: #fff
+    background-color: rgb(249, 247, 245);
 }
 
 [tabindex='-1']:focus {

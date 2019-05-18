@@ -4,12 +4,22 @@ Use this style sheet for custom styling classes
 
 */
 
+.body
+{
+    background-color: rgb(249, 247, 245);
+}
+
 .shape-primary-bg
 {
     background-image: url('bg.jpg');
     background-repeat:no-repeat;
     background-size:contain;
     background-position:center;
+}
+
+.fill-bg
+{
+    fill: #f9f7f5;
 }
 
 .thumbnail {
@@ -21,4 +31,37 @@ Use this style sheet for custom styling classes
     top: 55%;
     left: 0;
     width: 100%;
+}
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.wrap {
+    display: flex;
+    background: white;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 0.5rem;
+    
+  
+  position: relative;
+}
+
+.wrap a{
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+}
+
+.wrap:hover { 
+    color: rgb(59, 159, 226)
 }

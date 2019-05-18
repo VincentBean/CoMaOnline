@@ -2,7 +2,7 @@
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-light bg-white">
       <div class="container">
         <a class="navbar-brand mr-lg-5" href="{{route('welcome')}}">
-          <img src="">logo
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Albert_Heijn_Logo.svg">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

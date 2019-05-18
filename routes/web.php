@@ -16,7 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 
 Route::prefix('category')->group(function () {
-    Route::get('{id}', 'CategoryController@index')->name('home.category');
+    Route::get('', 'CategoryController@index')->name('home.category');
+    Route::get('{category}', 'CategoryController@category')->name('home.category.details');
 });
 
 Route::prefix('products')->group(function () {

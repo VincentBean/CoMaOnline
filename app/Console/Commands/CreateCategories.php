@@ -6,6 +6,7 @@ use App\Category;
 use App\SubCategory;
 use App\SubsubCategory;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class CreateCategories extends Command
 {
@@ -44,8 +45,11 @@ class CreateCategories extends Command
 
         foreach ($categoryObj as $category) {
 
+            //Makes an usable slug, so we can create readable URLs
+            $categorySlug = Str::slug($category->Name, '-');
+
             //Create an get the categoryId, used to bind the subcategory
-            $categoryId = Category::firstOrCreate(['name' => strtolower($category->Name)])->id;
+            $categoryId = Category::firstOrCreate(['name' => strtolower($category->Name)], ['slug' => $categorySlug])->id;
 
             if (is_array($category->Subcategory)) {
                 //Contains an array(multiple subcategories)
