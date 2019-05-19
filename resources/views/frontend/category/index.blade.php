@@ -38,8 +38,10 @@
                 {{-- Start row header image--}}
                 <div class="row">
                     <div class="col-md-12">
+                        @if($category->header_image_url != null)
                         <img src="{{$category->header_image_url}}" class="img-fluid header-image">
                         <h2 class="header_image_text text-white font-weight-bold">{{$category->name}}</h2>
+                        @endif
                     </div>
                 </div>
                 {{-- End row header image--}}
