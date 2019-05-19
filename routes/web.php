@@ -15,11 +15,13 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('welcome');
 
-Route::prefix('category')->group(function () {
-    Route::get('{id}', 'CategoryController@index')->name('home.category');
-});
+// Route::prefix('categorie')->group(function () {
+//     Route::get('', 'CategoryController@index')->name('home.category');
+//     Route::get('{category}', 'CategoryController@category')->name('home.category.details');
+// });
 
-Route::prefix('products')->group(function () {
+Route::prefix('producten')->group(function () {
     Route::get('', 'ProductsController@index')->name('home.products');
+    Route::get('{category}', 'ProductsController@category')->name('home.category.details');
     Route::get('product/{id}', 'ProductsController@details')->name('home.product');
 });

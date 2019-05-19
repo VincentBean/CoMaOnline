@@ -93,7 +93,7 @@ body {
     margin: 0;
     text-align: left;
     color: #525f7f;
-    background-color: #fff
+    background-color: rgb(249, 247, 245);
 }
 
 [tabindex='-1']:focus {
@@ -4795,7 +4795,7 @@ input[type=submit].btn-block {
 }
 
 .card-title {
-    margin-bottom: 1.25rem
+    margin-bottom: 0rem
 }
 
 .card-subtitle {
@@ -10232,8 +10232,8 @@ a.text-darker:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         box-shadow: none!important;
         text-shadow: none!important
     }
