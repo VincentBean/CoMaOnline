@@ -1,54 +1,94 @@
 @extends('layouts.frontend.master')
 @section('body')
+
 <section>
 
-        <div class="container-fluid">
-            <div class="row">
-            
-                <div class="col-lg-12" >
-                    <div class="col-lg-8 mx-auto" >
-                        <h2 class="mb-5">
-                        <span>Producten</span>
-                        <div class="float-right">
-                        {{ $categories->onEachSide(1)->links() }}
-                        </div>
-                        </h2>
-                        <div class="row no-gutter">
-                        
-                        @foreach($categories as $category)
-                        
-                        <div class="col-sm-3 ">
-                            <div class="card p-2 h-100" style="background: bisque">
-                                <div class="card-block">
-                                    <h3 class="card-title">{{$category->name}}</h3>
-                                    <div class="card-text">
-
-                                    </div>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-11 mx-auto">
+            {{-- Start row --}}
+            <div class="row no-gutter">
+            @foreach($categories as $category)
+                <div class="col-md-2">
+                    <div class="d-inline-flex justify-content-center h-100">
+                        <div class="card p-2 wrap">
+                        <a href="{{route('home.category.details', [ 'slug' => $category->slug])}}"></a>
+                            <div class="text-center">
+                                <img class="card-img-top img-fluid w-50" src="{{$category->category_image_url}}" alt="{{$category->name}} - Afbeelding">
+                                <div class="card-body">
+                                    <p class="card-text small font-weight-bold">{{$category->name}}</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            @endforeach
+            </div>
+            {{-- End of row --}}
+            <div class="card p-2">
+                <a href="#"></a>
+                <div class="text-center">
+                    <p class="font-weight-bold">Bezoek ook eens onze speciaalzaken</p>
+                </div>
+                <div class="d-inline-flex justify-content-between">
 
-                            @foreach($category->products as $product)
-                            <div class="col-sm-3 ">
-                                <div class="card p-2 h-100">
-                                    <div class="card-block"><div class="text-center">
-                                        <img class="card-img-top img-fluid w-75" src="{{$product->image_url}}" alt="Card image cap"></div>
-                                        <span class="badge badge-pill badge-primary float-right">€{{$product->price}}</span>
-                                        <h6 class="card-title">{{$product->title}}</h6>
-                                        <div class="card-text">
-                                            <p class="card-text">{{$product->short_description}}</p>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                    <div class="d-inline-flex justify-content-between wrap">
+                        <a href="#"></a>
+                        <div class="span4">
+                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
+                            <div class="content-heading"><h6>Speciaalzaak 1</h6>
+                            <p style="">Beauty, verzorging en acties</p>
                             </div>
-                            @endforeach
-
-                        @endforeach
-                        
+                        </div>
+                    </div>
+                
+                    <div class="d-inline-flex justify-content-between wrap">
+                        <div class="span4">
+                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
+                            <div class="content-heading"><h6>Speciaalzaak 2</h6>
+                            <p style="">Beauty, verzorging en acties</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-flex justify-content-between wrap">
+                        <div class="span4">
+                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
+                            <div class="content-heading"><h6>Speciaalzaak 3</h6>
+                            <p style="">Beauty, verzorging en acties</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="d-inline-flex justify-content-between wrap">
+                        <div class="span4">
+                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
+                            <div class="content-heading"><h6>Speciaalzaak 4</h6>
+                            <p style="">Beauty, verzorging en acties</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            {{-- End of card --}}
+            <div class="card p-2 default-bg">
+                <a href="#"></a>
+                <form>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <p class="font-weight-bold">Zoek direct naar een product</p>
+                            <div class="input-group input-group-alternative mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                </div>
+                                <input class="form-control form-control-alternative" placeholder="Zoek producten..." type="text">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
+
+</section>
+
 @endsection

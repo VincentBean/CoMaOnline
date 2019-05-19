@@ -1,78 +1,83 @@
 @extends('layouts.frontend.master')
 @section('body')
-
 <section>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-lg-11 mx-auto">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle mb-4" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Alle Categorieën
+                </button>
+                <a href="{{route('home.products')}}">Terug naar overzicht</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row no-gutter">
+                                @foreach($categories as $test)
+                                    <div class="col-md-2">
+                                        <div class="d-inline-flex justify-content-center h-100 w-100">
+                                            <div class="card p-2 wrap">
+                                                <a href="{{route('home.category.details', [ 'slug' => $test->slug])}}"></a>
+                                                <div class="text-center">
+                                                    <img class="card-img-top img-fluid w-50" src="{{$test->category_image_url}}" alt="{{$test->name}} - Afbeelding">
+                                                    <div class="card-body">
+                                                        <p class="card-text small font-weight-bold">{{$test->name}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>     
+                </div>
 
-<div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            {{-- Start row --}}
-            <div class="row no-gutter">
-            @foreach($categories as $category)
-                <div class="col-md-2">
-                    <div class="d-inline-flex justify-content-center h-100">
-                        <div class="card p-2 wrap">
-                        <a href="{{route('home.category.details', [ 'slug' => $category->slug])}}"></a>
-                            <div class="text-center">
-                                <img class="card-img-top img-fluid w-50" src="{{$category->image_url}}" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text small font-weight-bold">{{$category->name}}</p>
+                {{-- Start row header image--}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="{{$category->header_image_url}}" class="img-fluid header-image">
+                        <h2 class="header_image_text text-white font-weight-bold">{{$category->name}}</h2>
+                    </div>
+                </div>
+                {{-- End row header image--}}
+
+                {{-- Start row --}}
+                <div class="row no-gutter">
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="card p-2 h-100" style="background: bisque">
+                            <div class="card-block">
+                                <h3 class="card-title">{{$category->name}}</h3>
+                                <div class="card-text">
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-            </div>
-            {{-- End of row --}}
-            <div class="card p-2">
-                <a href="#"></a>
-                <div class="text-center">
-                    <p class="font-weight-bold">Bezoek ook eens onze speciaalzaken</p>
-                </div>
-                <div class="d-inline-flex justify-content-between">
-
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <a href="#"></a>
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Etos</h6>
-                            <p style="">Beauty, verzorging en acties</p>
+                        
+                    @foreach($category->products as $product)
+                    <div class="col-lg-2 col-md-3 col-sm-4">
+                        <div class="card p-2 h-100 wrap grow">
+                        <a href="{{route('home.product', ['id' => $product->id])}}"></a>
+                            <div class="card-block"><div class="text-center">
+                                <img class="card-img-top img-fluid w-75" src="{{$product->image_url}}" alt="Card image cap"></div>
+                                <span class="badge badge-pill badge-primary float-right">€{{$product->price}}</span>
+                                <h6 class="card-title product-card-title-height">{{$product->title}}<small class="text-muted"><br>{{$product->weight}}</small></h6>
+                                <div class="card-text product-card-text-height">
+                                    <p class="card-text">{{$product->short_description}}</p>
+                                </div>
+                                <i class="ni ni-bold-right float-right"></i>
                             </div>
                         </div>
                     </div>
-                
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Etos</h6>
-                            <p style="">Beauty, verzorging en acties</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Etos</h6>
-                            <p style="">Beauty, verzorging en acties</p>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Etos</h6>
-                            <p style="">Beauty, verzorging en acties</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach      
 
                 </div>
+                {{-- End row --}}
             </div>
         </div>
     </div>
-</div>
-
 </section>
-
 @endsection

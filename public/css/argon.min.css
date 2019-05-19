@@ -4795,7 +4795,7 @@ input[type=submit].btn-block {
 }
 
 .card-title {
-    margin-bottom: 1.25rem
+    margin-bottom: 0rem
 }
 
 .card-subtitle {
@@ -10232,8 +10232,8 @@ a.text-darker:hover {
 
 @media print {
     *,
-    ::after,
-    ::before {
+     ::after,
+     ::before {
         box-shadow: none!important;
         text-shadow: none!important
     }

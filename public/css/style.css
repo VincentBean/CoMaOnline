@@ -1,67 +1,115 @@
-/*!
+        /*!
 
 Use this style sheet for custom styling classes
 
 */
-
-.body
-{
-    background-color: rgb(249, 247, 245);
-}
-
-.shape-primary-bg
-{
-    background-image: url('bg.jpg');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-}
-
-.fill-bg
-{
-    fill: #f9f7f5;
-}
-
-.thumbnail {
-    position: relative;
-}
-
-.caption {
-    position: absolute;
-    top: 55%;
-    left: 0;
-    width: 100%;
-}
-
-.row.no-gutter {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.row.no-gutter [class*='col-']:not(:first-child),
-.row.no-gutter [class*='col-']:not(:last-child) {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.wrap {
-    display: flex;
-    background: white;
-    padding: 1rem 1rem 1rem 1rem;
-    border-radius: 0.5rem;
-    
-  
-  position: relative;
-}
-
-.wrap a{
-  position: absolute;
-  width:100%;
-  height:100%;
-  top:0px;
-  left:0px;
-}
-
-.wrap:hover { 
-    color: rgb(59, 159, 226)
-}
+        
+        .body {
+            background-color: rgb(249, 247, 245);
+        }
+        
+        .shape-primary-bg {
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        
+        .fill-bg {
+            fill: #f9f7f5;
+        }
+        
+        .default-bg {
+            background: rgb(249, 247, 245);
+        }
+        
+        .thumbnail {
+            position: relative;
+        }
+        
+        .caption {
+            position: absolute;
+            top: 55%;
+            left: 0;
+            width: 100%;
+        }
+        
+        .row.no-gutter {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .row.no-gutter [class*='col-']:not(:first-child),
+        .row.no-gutter [class*='col-']:not(:last-child) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        
+        .wrap {
+            display: flex;
+            background: white;
+            padding: 1rem 1rem 1rem 1rem;
+            border-radius: 0.0rem;
+            position: relative;
+            transition: all .2s ease-in-out;
+        }
+        
+        .wrap a {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+        }
+        
+        .wrap:hover i {
+            color: rgb(59, 159, 226);
+            transform: scale(1.4);
+        }
+        
+        .header-image {
+            height: 240px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .header_image_text {
+            position: relative;
+            padding: 10px;
+            margin-top: -76px;
+        }
+        
+        .dropdown {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            transition: max-height 0.5s ease-out;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-menu .header {
+            padding: 16px;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .product-card-title-height {
+            min-height: 80px;
+        }
+        
+        .product-card-text-height {
+            min-height: 100px;
+        }
