@@ -62,6 +62,10 @@ Use this style sheet for custom styling classes
             left: 0px;
         }
         
+        .wrap:hover {
+            color: rgb(59, 159, 226);
+        }
+        
         .wrap:hover i {
             color: rgb(59, 159, 226);
             transform: scale(1.4);

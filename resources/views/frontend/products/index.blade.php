@@ -37,7 +37,7 @@
                         <div class="span4">
                             <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
                             <div class="content-heading"><h6>Speciaalzaak 1</h6>
-                            <p style="">Beauty, verzorging en acties</p>
+                            <p style="">eget dui auctor tempor nec facilisis neque</p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                         <div class="span4">
                             <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
                             <div class="content-heading"><h6>Speciaalzaak 2</h6>
-                            <p style="">Beauty, verzorging en acties</p>
+                            <p style="">fermentum id turpis. Vestibulum vehicula metus</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="span4">
                             <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
                             <div class="content-heading"><h6>Speciaalzaak 3</h6>
-                            <p style="">Beauty, verzorging en acties</p>
+                            <p style="">Nulla nec mauris eros. Sed turpis nibh, pulvinar</p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="span4">
                             <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
                             <div class="content-heading"><h6>Speciaalzaak 4</h6>
-                            <p style="">Beauty, verzorging en acties</p>
+                            <p style="">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
                             </div>
                         </div>
                     </div>

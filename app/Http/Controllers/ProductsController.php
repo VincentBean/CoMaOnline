@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 
 class ProductsController extends Controller
 {
@@ -18,7 +19,9 @@ class ProductsController extends Controller
 
     public function details($id)
     {
-        return view('frontend.products.details');
+        $product = Product::find($id);
+
+        return view('frontend.products.details', compact('product'));
     }
 
     public function category(Category $category)
