@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::all()->random(3);
-        return view('welcome', compact('categories', 'products'));
+        return view('welcome', compact('products'));
     }
 }
