@@ -22,6 +22,8 @@
                   <span class="nav-link-inner--text">Categorieën</span>
                 </a>
                 <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                </div>  
 
               </li>
 

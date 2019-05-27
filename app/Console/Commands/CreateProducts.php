@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Category;
+use App\SubCategory;
+use App\SubsubCategory;
 use App\Product;
 use Illuminate\Console\Command;
 
@@ -49,9 +51,13 @@ class CreateProducts extends Command
             $short_description = (is_object($data->Shortdescription) ? '' : $data->Shortdescription);
 
             $category = Category::whereName($data->Category)->first();
+            $sub_category = SubCategory::whereName($data->Subcategory)->first();
+            $subsub_category = SubsubCategory::whereName($data->Subsubcategory)->first();
 
             //Insert product, if EAN exist it will get skipped.
-            $product = Product::firstOrCreate(['ean' => $data->EAN], ['category_id' => $category->id, 'title' => $data->Title, 'brand' => $data->Brand,
+            $product = Product::firstOrCreate(['ean' => $data->EAN], ['category_id' => $category->id, 
+                'sub_category_id' => $sub_category->id, 'subsub_category_id' => $subsub_category->id,
+                'title' => $data->Title, 'brand' => $data->Brand,
                 'short_description' => $short_description, 'full_description' => $full_description,
                 'image_url' => $data->Image, 'weight' => $data->Weight, 'price' => $data->Price]);
         }
