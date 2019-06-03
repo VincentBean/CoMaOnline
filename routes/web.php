@@ -25,7 +25,7 @@ Route::prefix('producten')->group(function () {
     Route::get('{category}', 'ProductsController@category')->name('home.category.details');
     Route::get('product/{id}', 'ProductsController@details')->name('home.product');
 });
-
+/*
 Route::get('/register', 'RegistrationController@create');
 Route::post('register', 'RegistrationController@store');
  

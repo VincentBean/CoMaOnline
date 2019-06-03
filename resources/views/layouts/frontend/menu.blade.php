@@ -44,7 +44,7 @@
                 </form>
               </li>
               <li class="nav-item d-none d-lg-block ml-lg-4">
-                <a href="#" target="_blank" class="btn btn-neutral btn-icon">
+                <a href="{{route('register')}}" target="_blank" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon">
                     <i class="ni ni-circle-08 mr-2"></i>
                   </span>
