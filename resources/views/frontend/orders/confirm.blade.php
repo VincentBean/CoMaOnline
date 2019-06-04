@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-8  center mt-3">
             <form method="POST" class="form-horizontal" enctype="multipart/form-data"
-                action="{{ route('home.order.moment') }}">
+                action="{{ route('home.order.confirm') }}">
                 @csrf
                 <div class="card">
                     @include('layouts.frontend.process')
@@ -46,16 +46,16 @@
                             <h3>Betaling</h3>  
                             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary mb-4 active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> iDEAL
+                                <input type="radio" name="payment_type" value="ideal" id="ideal" autocomplete="off" checked> iDEAL
                             </label>
                             <label class="btn btn-secondary mb-4">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> Visa
+                                <input type="radio" name="payment_type" value="visa" id="visa" autocomplete="off"> Visa
                             </label>
                             <label class="btn btn-secondary mb-4">
-                                <input type="radio" name="options" id="option3" autocomplete="off"> Mastercard
+                                <input type="radio" name="payment_type" value="mastercard" id="mastercard" autocomplete="off"> Mastercard
                             </label>
                             <label class="btn btn-secondary mb-4">
-                                <input type="radio" name="options" id="option3" autocomplete="off"> Paypal
+                                <input type="radio" name="payment_type" value="paypal" id="paypal" autocomplete="off"> Paypal
                             </label>
                             </div>                          
                         </div>
@@ -96,6 +96,17 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        <tr>
+                                            <td>
+                                            <small>Bezorgkosten</small>
+                                            </td>
+                                            <td>
+                                            <small>1</small>
+                                            </td>
+                                            <td>
+                                            <small>€{{$timeSlot->price}}</small>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>                    
@@ -108,12 +119,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="float-right" style="margin: 10px">
-                                <h5 class="">Totaal prijs: <small>€{{Cart::total()}}</small></h5>
+                                <h5 class="">Totaal prijs: <small>€{{Cart::total() + $timeSlot->price}}</small></h5>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="float-right" style="margin: 10px">
-                                <button type="submit" class="btn btn-primary float-right">Volgende</a>
+                                <button type="submit" class="btn btn-primary float-right">Bestelling voltooien</a>
                             </div>
                             <div class="float-right" style="margin: 10px">
                                 <a href="{{route('home.order.moment')}}" class="btn btn-danger float-right">Stap terug</a>

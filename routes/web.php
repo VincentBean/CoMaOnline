@@ -41,7 +41,9 @@ Route::prefix('bestellen')->group(function () {
     Route::get('bezorgmoment', 'OrderController@index')->name('home.order.moment');
     Route::post('bezorgmoment', 'OrderController@deliveryMoment')->name('home.order.moment');
     Route::get('bevestigen', 'OrderController@confirm')->name('home.order.confirm');
-    Route::get('bevestigen', 'OrderController@confirm')->name('home.order.confirm');
+    Route::post('bevestigen', 'OrderController@confirmOrder')->name('home.order.confirm');
+    Route::get('bevestigt', 'OrderController@finished')->name('home.order.finished');
+
 });
 
 Route::prefix('dashboard')->middleware('role:admin')->group(function () {
