@@ -1,0 +1,15 @@
+/* Use this style sheet for custom styling classes */
+
+.header-image {
+    height: 240px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.text-ahref {
+    color: #07C !important;
+}
+
+.text-black {
+    color: #000000 !important;
+}

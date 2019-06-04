@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = ['category_id', 'sub_category_id', 'subsub_category_id', 'ean', 'title', 'brand', 'short_description',
-    'full_description', 'image_url', 'weight', 'price'];
+        'full_description', 'image_url', 'weight', 'price'];
 
     public function category()
     {
@@ -21,5 +21,15 @@ class Product extends Model
         } else {
             return $value;
         }
+    }
+
+    public function promotion()
+    {
+        return $this->hasOne('App\Promotion', 'ean', 'ean');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
     }
 }

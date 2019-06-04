@@ -1840,7 +1840,7 @@ pre code {
     height: calc(2.75rem + 2px);
     padding: .625rem .75rem;
     transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
-    color: #8898aa;
+    color: #35404c;
     border: 1px solid #cad1d7;
     border-radius: .25rem;
     background-color: #fff;
@@ -1860,7 +1860,7 @@ pre code {
 }
 
 .form-control:focus {
-    color: #8898aa;
+    color: #35404c;
     border-color: rgba(50, 151, 211, .25);
     outline: 0;
     background-color: #fff;
@@ -10100,7 +10100,7 @@ a.text-primary:hover {
 }
 
 .text-secondary {
-    color: #f4f5f7!important
+    color: #e74c3c!important;
 }
 
 a.text-secondary:focus,

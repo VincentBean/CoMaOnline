@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Article;
+use App\Promotion;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->random(3);
-        return view('welcome', compact('products'));
+        $promotions = Promotion::all()->random(3);
+
+        $article = Article::orderBy('created_at', 'desc')->first();
+        $global_settings = DB::table('global_settings')->whereId(1)->first();
+
+        return view('welcome', compact('promotions', 'article', 'global_settings'));
     }
 }

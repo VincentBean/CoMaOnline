@@ -12,8 +12,8 @@
                     <div class="footer-widget ">
                         <div class="footer-title">Bedrijf</div>
                         <ul class="list-unstyled">
-                            <li><a href="#">Producten</a></li>
-                            <li><a href="#">Categorieën</a></li>
+                            <li><a href="{{route('home.products')}}">Producten</a></li>
+                            <li><a href="{{route('home.cart')}}">Wineklwagen</a></li>
                             <li><a href="#">Algemene voorwaarden</a></li>
                             <li><a href="#">Levering & verzending</a></li>
                             <li><a href="#">Privacybeleid</a></li>

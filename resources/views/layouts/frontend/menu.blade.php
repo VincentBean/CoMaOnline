@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="col-lg-11 mx-auto">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="ni ni-align-left-2"></span>
           </button>
           <div class="navbar-collapse collapse" id="navbar_global">
             <a class="navbar-brand mr-lg-5" href="{{route('welcome')}}">
@@ -12,25 +12,21 @@
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
               <li class="nav-item dropdown">
                 <a href="{{route('home.products')}}" class="nav-link">
-                  <i class="ni ni-ui-04 d-lg-none"></i>
+                  <i class="ni ni-shop d-lg-none"></i>
                   <span class="nav-link-inner--text">Producten</span>
                 </a>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                  <i class="ni ni-collection d-lg-none"></i>
-                  <span class="nav-link-inner--text">Categorieën</span>
+                  <i class="ni ni-ui-04 d-lg-none"></i>
+                  <span class="nav-link-inner--text">Aanbiedingen</span>
                 </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                </div>  
-
               </li>
 
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                  <i class="ni ni-ui-04 d-lg-none"></i>
-                  <span class="nav-link-inner--text">Acties</span>
+                <a href="{{route('home.cart')}}" class="nav-link">
+                  <i class="ni ni-shop d-lg-none"></i>
+                  <span class="nav-link-inner--text">Winkelwagen - €{{Cart::total()}}</span>
                 </a>
               </li>
             </ul>
@@ -45,19 +41,40 @@
                   </div>
                 </form>
               </li>
+              @if(Route::has('login'))
+              @auth
               <li class="nav-item d-none d-lg-block ml-lg-4">
-                <a href="#" target="_blank" class="btn btn-neutral btn-icon">
+                  <a href="{{route('home.profiel')}}">
+                      <span class="nav-link-inner--text">Profiel</span>
+                  </a>
+              </li>
+              @role('admin')
+              <li class="nav-item d-none d-lg-block ml-lg-4">
+                  <a href="{{route('dashboard.index')}}">
+                      <span class="nav-link-inner--text">Dashboard</span>
+                  </a>
+              </li>
+              @endrole
+              <li class="nav-item">
+                  <a class="nav-link" href="{{route('logout')}}">Logout</a>
+              </li>
+              @else
+              <li class="nav-item d-none d-lg-block ml-lg-4">
+                <a href="{{route('register')}}" class="btn btn-neutral btn-icon">
                   <span class="btn-inner--icon">
                     <i class="ni ni-circle-08 mr-2"></i>
                   </span>
                   <span class="nav-link-inner--text">Registeren</span>
                 </a>
               </li>
+
               <li class="nav-item d-none d-lg-block ml-lg-4">
                   <a href="{{route('login')}}">
                       <span class="nav-link-inner--text">Inloggen</span>
                   </a>
               </li>
+              @endauth
+              @endif
             </ul>
           </div>
           </div>

@@ -28,6 +28,12 @@ class Kernel extends ConsoleKernel
             ->everyMinute();
         $schedule->command('products:create')
             ->everyMinute();
+        $schedule->command('deliveryslots:create')
+            ->everyMinute();
+        $schedule->command('products:update')
+            ->everyMinute();
+        $schedule->command('promotions:update')
+            ->everyMinute();
     }
 
     /**

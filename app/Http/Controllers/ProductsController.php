@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use App\SubCategory;
 
 class ProductsController extends Controller
 {
@@ -12,16 +13,20 @@ class ProductsController extends Controller
         $categories = Category::all();
 
         return view('frontend.products.index', compact('categories'));
-
-        // $categories = Category::paginate(1);
-        // return view('frontend.products.index', compact('categories'));
     }
 
     public function details($id)
     {
+        //Retrieves all the data from the model on the product
         $product = Product::find($id);
+        $getSubProducts = SubCategory::find($product->sub_category_id);
 
-        return view('frontend.products.details', compact('product'));
+        //Filters out the current product and returns all the products with the same sub_category
+        $subProducts = Product::where('sub_category_id', $getSubProducts->id)
+            ->where('id', '!=', $id)
+            ->get();
+
+        return view('frontend.products.details', compact('product', 'subProducts'));
     }
 
     public function category(Category $category)
