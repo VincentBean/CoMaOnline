@@ -13,6 +13,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+Route::get('search', 'ProductsController@search')->name('search');
 
 Route::prefix('producten')->group(function () {
     Route::get('', 'ProductsController@index')->name('home.products');
