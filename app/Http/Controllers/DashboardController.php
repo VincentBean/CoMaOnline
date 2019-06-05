@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use App\User;
+use App\Order;
 
 class DashboardController extends Controller
 {
@@ -17,8 +18,9 @@ class DashboardController extends Controller
     {
         $articles = Article::all();
         $users = User::orderBy('id', 'DESC')->get();
+        $orders = Order::sum('price');
 
-        return view('backend.dashboard.index', compact('articles', 'users'));
+        return view('backend.dashboard.index', compact('articles', 'users', 'orders'));
     }
 
     public function newsArticles()
