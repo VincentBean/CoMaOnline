@@ -13,11 +13,11 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-Route::get('search', 'ProductsController@search')->name('search');
 
 Route::prefix('producten')->group(function () {
     Route::get('', 'ProductsController@index')->name('home.products');
     Route::get('{category}', 'ProductsController@category')->name('home.category.details');
+    Route::get('{category}/sub/{id}', 'ProductsController@subCategory')->name('home.subCategory');
     Route::get('product/{id}', 'ProductsController@details')->name('home.product');
     Route::post('product/{id}/add', 'ShoppingCartController@addToCart')->name('home.cart.add');
 });
@@ -47,14 +47,14 @@ Route::prefix('bestellen')->group(function () {
 
 });
 
-Route::prefix('dashboard')->middleware('role:admin')->group(function () {
+Route::prefix('dashboard')->middleware('role:admin|web_editor')->group(function () {
     Route::get('', 'DashboardController@index')->name('dashboard.index');
     Route::get('/nieuws', 'DashboardController@newsArticles')->name('dashboard.articles');
     Route::get('/categorieen', 'DashboardController@categories')->name('dashboard.categories');
-    Route::get('/gebruikers', 'DashboardController@users')->name('dashboard.users');
+    Route::get('/gebruikers', 'DashboardController@users')->middleware('role:admin')->name('dashboard.users');
 });
 
-Route::prefix('dashboard/nieuws')->middleware('role:admin')->group(function () {
+Route::prefix('dashboard/nieuws')->middleware('role:admin|web_editor')->group(function () {
     Route::get('create', 'ArticlesController@create')->name('dashboard.articles.create');
     Route::post('create', 'ArticlesController@store')->name('dashboard.articles.create');
     Route::get('{id}/edit', 'ArticlesController@edit')->name('dashboard.articles.edit');
@@ -62,12 +62,12 @@ Route::prefix('dashboard/nieuws')->middleware('role:admin')->group(function () {
     Route::post('delete', 'ArticlesController@delete')->name('dashboard.articles.delete');
 });
 
-Route::prefix('dashboard/categorieen')->middleware('role:admin')->group(function () {
+Route::prefix('dashboard/categorieen')->middleware('role:admin|web_editor')->group(function () {
     Route::get('{id}/edit', 'CategoryController@edit')->name('dashboard.categories.edit');
     Route::put('{id}/edit', 'CategoryController@update')->name('dashboard.categories.edit');
 });
 
-Route::prefix('dashboard/aanbiedingen')->middleware('role:admin')->group(function () {
+Route::prefix('dashboard/aanbiedingen')->middleware('role:admin|web_editor')->group(function () {
     Route::get('edit', 'PromotionsController@edit')->name('dashboard.promotions.edit');
     Route::put('edit', 'PromotionsController@update')->name('dashboard.promotions.edit');
 });

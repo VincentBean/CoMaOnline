@@ -34,6 +34,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @if(Cart::content()->count() == 0)
+                                <p class="font-weight-bold">Geen producten in de winkelwagen. Bekijk ons assortiment <a href="{{route('home.products')}}">hier</a></p>
+                                @endif
                                     @foreach(Cart::content() as $content)
                                     <tr>
                                         <td>

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Category;
 use App\Product;
 use App\SubCategory;
@@ -39,16 +37,20 @@ class ProductsController extends Controller
 
         $categories = Category::all();
 
-        return view('frontend.category.index', compact('category', 'categories'));
+        $subCategories = SubCategory::whereCategoryId($category->id)->get();
+
+        return view('frontend.category.index', compact('category', 'categories', 'subCategories'));
     }
 
-    public function search(Request $request)
+    public function subCategory($category, $id)
     {
-        $query = $request->input('q');
-        $products = Product::where("Title", "like", "%$query%")->get();
 
-        $amount = Product::where("Title", "like", "%$query%")->count();
+        $category = Category::whereSlug($category)->first();
+        $categories = Category::all();
 
-        return view('frontend.products.search', compact('products', 'amount'));
+        $subCategories = SubCategory::whereCategoryId($category->id)->get();
+        $subCategory = SubCategory::whereId($id)->first();
+
+        return view('frontend.category.subcategories', compact('category', 'categories', 'subCategories', 'subCategory'));
     }
 }

@@ -23,12 +23,14 @@
         <p>Categorieën</p>
         </a>
     </li>
+    @role('admin')
     <li class="nav-item {{ Request::is('dashboard/gebruikers*') ? 'active' : ''}}">
         <a class="nav-link" href="{{route('dashboard.users')}}">
         <i class="material-icons">account_box</i>
             <p>Gebruikers</p>
         </a>
     </li>
+    @endrole
     {{-- <li class="nav-item">
         <a class="nav-link" href="https://material-dashboard-laravel.creative-tim.com/notifications">
         <i class="material-icons">contact_mail</i>

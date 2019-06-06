@@ -56,7 +56,7 @@
                                     <div class="card-text">
                                         <ul class="list-unstyled">
                                             @foreach($subCategories as $s)
-                                            <li class="active"><a href="{{route('home.subCategory', [ 'slug' => $category->slug, 'id' => $s->id])}}" >{{ucfirst($s->name)}}</a></li>
+                                            <li><a class="" href="{{route('home.subCategory', [ 'slug' => $category->slug, 'id' => $s->id])}}" >{{ucfirst($s->name)}}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    @foreach($category->products as $product)
+                    @foreach($subCategory->products as $product)
                     <div class="col-lg-2 col-md-3 col-sm-4">
                         <div class="card p-2 h-100 wrap grow">
                         <a href="{{route('home.product', ['id' => $product->id])}}"></a>

@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Header afbeelding</label>
+                        <label class="col-sm-2 col-form-label">Categorie afbeelding</label>
                         <div class="col-sm-7">
                             @if($errors->first('category_image'))
                             <p class="text-danger">

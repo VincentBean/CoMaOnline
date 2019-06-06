@@ -50,7 +50,7 @@
                     <i class="material-icons">store</i>
                 </div>
                 <p class="card-category">Omzet</p>
-            <h3 class="card-title">€{{$orders}}</h3>
+                <h3 class="card-title">€34,245</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
@@ -82,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @for($i = 0; $i < 5; $i++)
+                    @for($i = 0; $i < 0; $i++)
                         <tr class="cursor-pointer" onclick="window.location.href = '{{route('dashboard.users.edit', ['id' => $users[$i]->id])}}'">
                             <td>{{$users[$i]->id}}</td>
                             <td>{{$users[$i]->customer->fullName()}}</td>
