@@ -13,7 +13,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-Route::get('search', 'ProductsController@search')->name('search');	
+Route::get('search', 'ProductsController@search')->name('search');
 route::post('fetch', 'ProductsController@fetchSuggestions')->name('fetch');
 
 Route::prefix('producten')->group(function () {
