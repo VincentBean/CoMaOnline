@@ -37,9 +37,9 @@
     @include('layouts.frontend.menu')
 
     @yield('body')
-    
+
     @include('layouts.frontend.footer')
-    
+
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/popper/popper.min.js')}}"></script>
@@ -49,5 +49,42 @@
 
     <!-- Theme JS -->
     <script src="{{asset('js/argon.min.js')}}"></script>
+
+    {{-- Handle searchsuggestions --}}
+    <script>
+        $(document).ready(function(){
+
+         $('#search').keyup(function(){
+                var query = $(this).val();
+                if(query != '')
+                {
+
+                    var _token = $('input[name="_token"]').val();
+                 $.ajax({
+                  url:"{{ route('fetch') }}",
+                  method:"POST",
+                  data:{query:query, _token:_token},
+                  success:function(data){
+                   $('#productlist').fadeIn();
+                            $('#productlist').html(data);
+                  }
+                 });
+                }
+                else
+                {
+                    $('#productlist').fadeOut();
+                }
+            });
+
+            $('#search').focusout(function(){
+                $('#productlist').fadeOut();
+            });
+
+            $('#search').focusin(function(){
+                $('#productlist').fadeIn();
+            });
+        });
+    </script>
+
   </body>
 </html>

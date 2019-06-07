@@ -64,4 +64,15 @@ class ProductsController extends Controller
 
         return view('frontend.products.search', compact('products', 'amount'));
     }
+
+    function fetchSuggestions(Request $request)
+    {
+     if($request->get('query'))
+     {
+      $query = $request->get('query');
+      $products = Product::where("Title", "like", "%$query%")->get();
+
+      return view('frontend.products.fetch', compact('products'));
+     }
+    }
 }

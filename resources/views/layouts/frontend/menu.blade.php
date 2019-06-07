@@ -38,11 +38,11 @@
                             <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                         </div>
                       <input id="search" name="q" value="{{request()->input('q')}}" class="form-control form-control-alternative" placeholder="Zoek naar..." type="text">
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+
+                    <div id="productlist" class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="width:500px;z-index:1000;">
+
+                      </div>
+                      {{ csrf_field() }}
                     </div>
                  </form>
               </li>
