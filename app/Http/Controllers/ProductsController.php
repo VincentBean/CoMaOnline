@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use App\SubCategory;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -52,5 +53,15 @@ class ProductsController extends Controller
         $subCategory = SubCategory::whereId($id)->first();
 
         return view('frontend.category.subcategories', compact('category', 'categories', 'subCategories', 'subCategory'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+        $products = Product::where("Title", "like", "%$query%")->get();
+
+        $amount = Product::where("Title", "like", "%$query%")->count();
+
+        return view('frontend.products.search', compact('products', 'amount'));
     }
 }

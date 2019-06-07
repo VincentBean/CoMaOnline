@@ -32,14 +32,19 @@
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
               <li class="nav-item d-none d-lg-block ml-lg-4">
-               <form>
-                  <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
-                      </div>
-                      <input class="form-control form-control-alternative" placeholder="Zoek naar..." type="text">
-                  </div>
-                </form>
+                <form method="GET" action="{{route('search')}}">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                        </div>
+                      <input id="search" name="q" value="{{request()->input('q')}}" class="form-control form-control-alternative" placeholder="Zoek naar..." type="text">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                    </div>
+                 </form>
               </li>
               @if(Route::has('login'))
               @auth
