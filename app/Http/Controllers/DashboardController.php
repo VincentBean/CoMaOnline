@@ -17,9 +17,8 @@ class DashboardController extends Controller
     {
         $articles = Article::all();
         $users = User::orderBy('id', 'DESC')->get();
-        $orders = Order::sum('price');
 
-        return view('backend.dashboard.index', compact('articles', 'users', 'orders'));
+        return view('backend.dashboard.index', compact('articles', 'users'));
     }
 
     public function newsArticles()

@@ -13348,7 +13348,8 @@ textarea[resize=horizontal] {
     }
     .navbar-nav .dropdown-menu {
         margin: 0;
-        opacity: 1
+        pointer-events: none;
+        opacity: 0
     }
     .navbar-nav .dropdown-menu:before {
         position: absolute;
