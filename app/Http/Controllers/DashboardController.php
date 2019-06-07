@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use App\Order;
 use App\User;
 
 class DashboardController extends Controller
@@ -17,8 +18,8 @@ class DashboardController extends Controller
     {
         $articles = Article::all();
         $users = User::orderBy('id', 'DESC')->get();
-        $orders = Order::sum('price');	
-        
+        $orders = Order::sum('price');
+
         return view('backend.dashboard.index', compact('articles', 'users', 'orders'));
     }
 
