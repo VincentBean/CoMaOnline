@@ -13348,7 +13348,8 @@ textarea[resize=horizontal] {
     }
     .navbar-nav .dropdown-menu {
         margin: 0;
-        opacity: 1
+        pointer-events: none;
+        opacity: 0
     }
     .navbar-nav .dropdown-menu:before {
         position: absolute;
@@ -13550,7 +13551,7 @@ textarea[resize=horizontal] {
     0% {
         transition: visibility .25s, opacity .25s, transform .25s;
         transform: translate(0, 10px) perspective(200px) rotateX(-2deg);
-        opacity: 0
+        opacity: 1
     }
     100% {
         transform: translate(0, 0);
