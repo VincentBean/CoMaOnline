@@ -13551,7 +13551,7 @@ textarea[resize=horizontal] {
     0% {
         transition: visibility .25s, opacity .25s, transform .25s;
         transform: translate(0, 10px) perspective(200px) rotateX(-2deg);
-        opacity: 0
+        opacity: 1
     }
     100% {
         transform: translate(0, 0);
