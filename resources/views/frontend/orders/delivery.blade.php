@@ -58,7 +58,6 @@
                                     </div>
                                     @php ($i++)
                                 @endforeach
-                            <h3>Bezorgadres</h3>    
                             </div>
                         </div>
                 </div>

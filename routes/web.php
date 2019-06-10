@@ -31,6 +31,11 @@ Route::prefix('artikel')->group(function () {
 
 Route::prefix('profiel')->group(function () {
     Route::get('', 'CustomersController@index')->name('home.profiel');
+    Route::get('account', 'CustomersController@getAccount')->name('home.profiel.account');
+    Route::post('account', 'CustomersController@updateAccount')->name('home.profiel.account');
+    Route::put('password', 'CustomersController@updatePassword')->name('home.profiel.password');
+    Route::get('bestellingen', 'CustomersController@getOrders')->name('home.profiel.orders');
+    Route::get('bestellingen/{id}', 'CustomersController@getOrder')->name('home.profiel.order');
 });
 
 Route::prefix('winkelwagen')->group(function () {

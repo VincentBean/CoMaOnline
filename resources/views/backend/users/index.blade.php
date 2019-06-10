@@ -35,38 +35,39 @@
                         </thead>
                         <tbody>
                             @foreach($users as $user)
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="users[]" value="{{$user->id}}">
-                                        <span class="form-check-sign">
-                                            <span class="check"></span>
-                                        </span>
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>
-                                    {{$user->customer->fullName()}}
-                                </td>
-                                <td>
-                                    {{$user->email}}
-                                </td>
-                                <td>
-                                @if($user->disabled)
-                                    <i class="material-icons text-danger">block</i>
-                                @else
-                                    <i class="material-icons text-success">check_circle_outline</i>
-                                @endif
-                                </td>
-                                <td>
-                                    {{$user->created_at}}
-                                </td>
-                                <td>
-                                    <a href="{{route('dashboard.users.edit', ['id' => $user->id])}}" class="delete">
-                                    <i class="material-icons text-black">edit</i></a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="users[]" value="{{$user->id}}">
+                                            <span class="form-check-sign">
+                                                <span class="check"></span>
+                                            </span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {!!$user->customer != null ? $user->customer->fullName() : 
+                                        '<div class="text-danger font-weight-bold">Geen klantgegevens bekend</div>'!!}
+                                    </td>
+                                    <td>
+                                        {{$user->email}}
+                                    </td>
+                                    <td>
+                                    @if($user->disabled)
+                                        <i class="material-icons text-danger">block</i>
+                                    @else
+                                        <i class="material-icons text-success">check_circle_outline</i>
+                                    @endif
+                                    </td>
+                                    <td>
+                                        {{$user->created_at}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('dashboard.users.edit', ['id' => $user->id])}}" class="delete">
+                                        <i class="material-icons text-black">edit</i></a>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

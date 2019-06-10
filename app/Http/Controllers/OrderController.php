@@ -78,7 +78,7 @@ class OrderController extends Controller
                 'price' => Cart::total() + $timeSlot->price]);
 
             foreach (Cart::content() as $product) {
-                $order->products()->attach($product->id);
+                $order->products()->attach([$product->id => ['quantity' => $product->qty]]);
             }
 
             $timeSlot->unavailable = 1;
