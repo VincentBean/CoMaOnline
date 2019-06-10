@@ -26,8 +26,11 @@ Route::prefix('artikel')->group(function () {
     Route::post('load_data', 'ArticlesController@load_data')->name('loadmore.load_data');
 });
 
-Route::prefix('profiel')->group(function () {
+Route::prefix('profiel')->middleware('role:admin')->group(function () {
     Route::get('', 'CustomersController@index')->name('home.profiel');
+    Route::get('/gebruikers', 'DashboardController@users')->name('dashboard.users');
+    Route::get('{id}/edit', 'UsersController@edit')->name('dashboard.users.edit');
+    Route::put('{id}/edit', 'UsersController@update')->name('dashboard.users.edit');
 });
 
 Route::prefix('winkelwagen')->group(function () {
