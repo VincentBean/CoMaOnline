@@ -74,7 +74,7 @@ class OrderController extends Controller
             $timeSlotId = Session::get('time_slot_id');
             $timeSlot = TimeSlot::findOrFail($timeSlotId);
 
-            $order = Customer::findOrFail($user->customer->id)->orders()->create(['payment_type' => $request->payment_type,
+            $order = Customer::findOrFail($user->customer->id)->orders()->create(['time_slot_id' => $timeSlotId, 'payment_type' => $request->payment_type,
                 'price' => Cart::total() + $timeSlot->price]);
 
             foreach (Cart::content() as $product) {

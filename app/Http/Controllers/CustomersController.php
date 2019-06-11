@@ -20,10 +20,11 @@ class CustomersController extends Controller
     public function index()
     {
         $customer = Auth::user()->customer;
+        $user = Auth::user();
 
         $orders = Order::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->take(5)->get();
 
-        return view('frontend.profile.index', compact('customer', 'orders'));
+        return view('frontend.profile.index', compact('customer', 'user', 'orders'));
     }
 
     public function getAccount()
@@ -44,12 +45,12 @@ class CustomersController extends Controller
 
     public function getOrder($id)
     {
-        $customer = Auth::user()->customer;
+        $user = Auth::user();
 
         $order = Order::whereId($id)
-            ->where('user_id', $customer->user_id)->firstOrFail();
+            ->where('user_id', $user->id)->firstOrFail();
 
-        return view('frontend.profile.order', compact('order'));
+        return view('frontend.profile.order', compact('user', 'order'));
     }
 
     public function updateAccount(UpdateCustomer $request)

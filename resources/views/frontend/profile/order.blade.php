@@ -19,6 +19,76 @@
                         </div>
 
                         <div class="card-body">
+
+                        <h3>Klantgegevens</h3>
+
+                        <div class="row ml-2">
+
+                            <div class="form-group col-xs-3 col-md-3">
+                                
+                                <label for="name" class="control-label font-weight-bold">Volledige naam</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->customer->fullName()}}</label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-xs-3 col-md-3">
+                                
+                                <label for="name" class="control-label font-weight-bold">E-mail</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->email}}</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-xs-3 col-md-3">
+                                
+                                <label for="name" class="control-label font-weight-bold">Telefoonnummer</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->customer->phone}}</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row ml-2">
+
+                            <div class="form-group col-xs-3 col-md-3">
+                                
+                                <label for="name" class="control-label font-weight-bold">Straatnaam</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->customer->street_name}} {{$user->customer->house_number}}</label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-xs-3 col-sm-3 col-md-3 ">
+                                
+                                <label for="name" class="control-label font-weight-bold">Plaats</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->customer->city}}</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-xs-3 col-md-3">
+                                
+                                <label for="name" class="control-label font-weight-bold">Postcode</label>
+                                
+                                <div class="col-md-6">
+                                    <label for="name" class="control-label">{{$user->customer->zipcode}}</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead class="text-muted">
@@ -26,7 +96,6 @@
                                             <th scope="col">Product</th>
                                             <th scope="col" width="10">Aantal</th>
                                             <th scope="col">Prijs</th>
-                                            <th scope="col"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -68,7 +137,17 @@
                             </div>
                         </div>
                         <div class="card-footer">
-
+                            <div class="col-12">
+                                <div class="float-left" style="margin: 10px">
+                                    <a href="{{route('home.profiel.orders')}}" class="">Terug naar overzicht</a>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="float-right" style="margin: 10px">
+                                    <h6 class="">Bezorgkosten: <small>€{{$order->time_slot->price}}</small></h6>
+                                    <h5 class="">Totaal prijs: <small>€{{$order->price}}</small></h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {{-- end card --}}

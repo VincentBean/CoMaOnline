@@ -25,6 +25,7 @@
                                     <div class="card-header">Alle bestellingen</div>
                                     {{-- @if(!$quote->isEmpty()) --}}
 
+                                    @if(!$orders->isEmpty())
                                     {{-- Display users --}}
                                     <table class="table table-hover">
                                         <thead>
@@ -37,7 +38,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach($orders as $order)
-                                            <tr class="cursor-pointer" onclick="window.location.href = '{{route('home.profiel.order', ['id' => $order->id])}}'">
+                                            <tr style="cursor: pointer;" onclick="window.location.href = '{{route('home.profiel.order', ['id' => $order->id])}}'">
                                                 <td scope="row">{{$order->id}}</td>
                                                 <td>€{{$order->price}}</td>
                                                 <td>{{$order->created_at}}</td>
@@ -46,6 +47,9 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @else
+                                    <h2 class="p-4 text-center">{{__('general.error_no_orders')}}</h2>
+                                    @endif
                                     {{ $orders->links() }}
                                 </div>
                             </div>
