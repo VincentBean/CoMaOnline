@@ -82,14 +82,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @for($i = 0; $i < 5; $i++)
-                        <tr class="cursor-pointer" onclick="window.location.href = '{{route('dashboard.users.edit', ['id' => $users[$i]->id])}}'">
-                            <td>{{$users[$i]->id}}</td>
-                            <td>{{$users[$i]->customer->fullName()}}</td>
-                            <td>{{$users[$i]->email}}</td>
-                            <td>{{$users[$i]->customer->province}}</td>
+                    @foreach($users as $user)
+                        <tr class="cursor-pointer" onclick="window.location.href = '{{route('dashboard.users.edit', ['id' => $user->id])}}'">
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->customer->fullName()}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->customer->province}}</td>
                         </tr>
-                    @endfor
+                    @endforeach
                     </tbody>
                 </table>
             </div>
