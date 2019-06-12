@@ -82,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @for($i = 0; $i < 0; $i++)
+                    @for($i = 0; $i < 5; $i++)
                         <tr class="cursor-pointer" onclick="window.location.href = '{{route('dashboard.users.edit', ['id' => $users[$i]->id])}}'">
                             <td>{{$users[$i]->id}}</td>
                             <td>{{$users[$i]->customer->fullName()}}</td>

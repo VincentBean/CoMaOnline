@@ -37,9 +37,9 @@
     @include('layouts.frontend.menu')
 
     @yield('body')
-    
+
     @include('layouts.frontend.footer')
-    
+
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/popper/popper.min.js')}}"></script>
@@ -78,6 +78,38 @@
             });
             $('#search').focusin(function(){
                 $('#productlist').fadeIn();
+            });
+        });
+    </script>
+
+    {{-- Handle searchsuggestions --}}
+    <script>
+        $(document).ready(function(){
+         $('#searchCategory').keyup(function(){
+                var query = $(this).val();
+                if(query != '')
+                {
+                    var _token = $('input[name="_token"]').val();
+                 $.ajax({
+                  url:"{{ route('fetch') }}",
+                  method:"POST",
+                  data:{query:query, _token:_token},
+                  success:function(data){
+                   $('#productlistCategory').fadeIn();
+                            $('#productlistCategory').html(data);
+                  }
+                 });
+                }
+                else
+                {
+                    $('#productlistCategory').fadeOut();
+                }
+            });
+            $('#search').focusout(function(){
+                $('#productlistCategory').fadeOut();
+            });
+            $('#search').focusin(function(){
+                $('#productlistCategory').fadeIn();
             });
         });
     </script>

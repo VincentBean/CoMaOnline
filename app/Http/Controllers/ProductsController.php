@@ -68,7 +68,7 @@ class ProductsController extends Controller
     {
         if ($request->get('query')) {
             $query = $request->get('query');
-            $products = Product::where("Title", "like", "%$query%")->get();
+            $products = Product::where("Title", "like", "%$query%")->take(5)->get();
             return view('frontend.products.fetch', compact('products'));
         }
     }

@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <div class="d-inline-flex justify-content-between wrap">
                         <div class="span4">
                             <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
@@ -71,7 +71,7 @@
             {{-- End of card --}}
             <div class="card p-2 default-bg">
                 <a href="#"></a>
-                <form>
+                <form method="GET" action="{{route('search')}}">
                     <div class="col-md-6">
                         <div class="form-group">
                             <p class="font-weight-bold">Zoek direct naar een product</p>
@@ -79,7 +79,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                                 </div>
-                                <input class="form-control form-control-alternative" placeholder="Zoek producten..." type="text">
+                                <input id="searchCategory" name="q" value="{{request()->input('q')}}" class="form-control form-control-alternative" placeholder="Zoek producten..." autocomplete="off" type="text">
+                                <div id="productlistCategory" class="dropdown-menu" aria-labelledby="dropdownMenuLink"
+                                        style="width:500px;z-index:1000;">
+
+                                    </div>
+                                    {{ csrf_field() }}
                             </div>
                         </div>
                     </div>
