@@ -84,9 +84,9 @@ return [
     'mimes' => 'De :attribute mag alleen bestaan uit: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute moet op ze minst :min zijn.',
+        'numeric' => 'Het :attribute moet op ze minst :min zijn.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => 'Het :attribute moet op ze minst uit :min tekens bestaan.',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'not_in' => 'The selected :attribute is invalid.',
@@ -156,6 +156,7 @@ return [
         'zipcode' => 'postcode',
         'house_number' => 'huisnummer',
         'new-password' => 'nieuwe wachtwoord',
+        'password' => 'wachtwoord'
     ],
 
 ];

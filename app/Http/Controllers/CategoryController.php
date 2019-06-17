@@ -60,7 +60,7 @@ class CategoryController extends Controller
         Category::where('id', $id)
             ->update($request->except('_token', '_method', 'header_image', 'category_image'));
 
-        Session::flash('message', "Nieuwsbericht is gewijzigd.");
+        Session::flash('message', "Categorie is gewijzigd.");
         Session::flash('new-id', $id);
 
         return redirect()->route('dashboard.categories');
