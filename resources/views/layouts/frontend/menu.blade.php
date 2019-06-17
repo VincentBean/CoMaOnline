@@ -17,9 +17,10 @@
                                 <span class="nav-link-inner--text">Producten</span>
                             </a>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-                                <i class="ni ni-ui-04 d-lg-none"></i>
+                            <a href="{{route('home.discounts')}}" class="nav-link">
+                                <i class="ni ni-shop d-lg-none"></i>
                                 <span class="nav-link-inner--text">Aanbiedingen</span>
                             </a>
                         </li>

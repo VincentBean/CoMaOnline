@@ -24,6 +24,10 @@ Route::prefix('producten')->group(function () {
     Route::post('product/{id}/add', 'ShoppingCartController@addToCart')->name('home.cart.add');
 });
 
+Route::prefix('aanbiedingen')->group(function () {
+    Route::get('', 'DiscountsController@index')->name('home.discounts');
+});
+
 Route::prefix('artikel')->group(function () {
     Route::get('{article}', 'ArticlesController@details')->name('home.article.details');
     Route::post('load_data', 'ArticlesController@load_data')->name('loadmore.load_data');
