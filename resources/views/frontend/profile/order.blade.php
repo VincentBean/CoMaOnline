@@ -144,8 +144,8 @@
                             </div>
                             <div class="col-12">
                                 <div class="float-right" style="margin: 10px">
-                                    <h6 class="">Bezorgkosten: <small>€{{$order->time_slot->price}}</small></h6>
-                                    <h5 class="">Totaal prijs: <small>€{{$order->price}}</small></h5>
+                                    <h6 class="">Bezorgkosten: <small>{!!currency($order->time_slot->price)!!}</small></h6>
+                                    <h5 class="">Totaal prijs: <small>{!!currency($order->price)!!}</small></h5>
                                 </div>
                             </div>
                         </div>

@@ -23,3 +23,15 @@ if (!function_exists('xmlToJson')) {
         return $jsonObj;
     }
 }
+
+if (!function_exists('currency')) {
+    function currency($value)
+    {
+        $value = doubleval($value);
+        if (\App::isLocale('en')) {
+            return "&euro;&nbsp;" . number_format($value, 2, '.', ',');
+        } else {
+            return "&euro;&nbsp;" . number_format($value, 2, ',', '.');
+        }
+    }
+}

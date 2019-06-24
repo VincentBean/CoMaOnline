@@ -40,7 +40,7 @@
                                             @foreach($orders as $order)
                                             <tr style="cursor: pointer;" onclick="window.location.href = '{{route('home.profiel.order', ['id' => $order->id])}}'">
                                                 <td scope="row">{{$order->id}}</td>
-                                                <td>€{{$order->price}}</td>
+                                                <td>{!!currency($order->price)!!}</td>
                                                 <td>{{$order->created_at}}</td>
                                                 <td>In behandeling</td>
                                             </tr>
