@@ -48,6 +48,6 @@ class DashboardController extends Controller
     {
         $subscribers = Newsletter::paginate(10);
 
-        return view('backend.newsletter.index', compact('newsletter'));
+        return view('backend.newsletter.index', compact('subscribers'));
     }
 }
