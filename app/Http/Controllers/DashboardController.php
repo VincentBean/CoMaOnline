@@ -6,6 +6,7 @@ use App\Article;
 use App\Category;
 use App\Order;
 use App\User;
+use App\Newsletter;
 
 class DashboardController extends Controller
 {
@@ -42,5 +43,11 @@ class DashboardController extends Controller
         $users = User::paginate(10);
 
         return view('backend.users.index', compact('users'));
+    }
+    public function newsletter()
+    {
+        $subscribers = Newsletter::paginate(10);
+
+        return view('backend.newsletter.index', compact('newsletter'));
     }
 }

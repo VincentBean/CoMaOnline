@@ -63,6 +63,7 @@ Route::prefix('dashboard')->middleware('role:admin|web_editor')->group(function 
     Route::get('/nieuws', 'DashboardController@newsArticles')->name('dashboard.articles');
     Route::get('/categorieen', 'DashboardController@categories')->name('dashboard.categories');
     Route::get('/gebruikers', 'DashboardController@users')->middleware('role:admin')->name('dashboard.users');
+    Route::get('/neuwsbrief', 'DashboardController@newsletter')->name('dashboard.newsletter');
 });
 
 Route::prefix('dashboard/nieuws')->middleware('role:admin|web_editor')->group(function () {
@@ -91,5 +92,10 @@ Route::prefix('dashboard/gebruikers')->middleware('role:admin')->group(function 
     Route::put('{id}/edit/role', 'UsersController@updateRole')->name('dashboard.users.role');
     Route::post('delete', 'UsersController@delete')->name('dashboard.users.delete');
 });
+Route::prefix('dashboard/neuwsbrief')->middleware('role:admin')->group(function () {
+    Route::post('delete', 'NewsletterController@delete')->name('dashboard.newsletter.delete');
+});
+
+Route::post('subscribe', 'NewsletterController@subscribe')->name('home.subscribe');
 
 Route::get('/api/address/{zipcode}/{number}', 'Api\AddressController@getAddress')->name('api.address');
