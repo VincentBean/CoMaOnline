@@ -17,6 +17,12 @@
             <p>Aanbiedingen</p>
         </a>
     </li>
+    <li class="nav-item {{Request::is('dashboard/neuwsbrief*') ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('dashboard.newsletter')}}">
+        <i class="material-icons">email</i>
+            <p>Nieuwsbrief</p>
+        </a>
+    </li>
     <li class="nav-item {{ Request::is('dashboard/categorieen*') ? 'active' : ''}}">
         <a class="nav-link" href="{{route('dashboard.categories')}}">
         <i class="material-icons">category</i>

@@ -13,7 +13,7 @@
                         <div class="footer-title">Bedrijf</div>
                         <ul class="list-unstyled">
                             <li><a href="{{route('home.products')}}">Producten</a></li>
-                            <li><a href="{{route('home.cart')}}">Wineklwagen</a></li>
+                            <li><a href="{{route('home.cart')}}">Winkelwagen</a></li>
                             <li><a href="#">Algemene voorwaarden</a></li>
                             <li><a href="#">Levering & verzending</a></li>
                             <li><a href="#">Privacybeleid</a></li>
@@ -50,9 +50,10 @@
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-6 col-6 ">
                     <div class="footer-widget ">
                         <h3 class="footer-title">Aanmelden voor nieuwsbrief</h3>
-                        <form>
+                        <form method="POST" action="{{ route('home.subscribe') }}" >
+                        @csrf
                             <div class="newsletter-form">
-                                <input class="form-control" placeholder="Vul je e-mail in" type="text">
+                                <input class="form-control" name="email" placeholder="Vul je e-mail in" type="text">
                                 <button class="btn btn-default mt-1" type="submit">Aanmelden</button>
                             </div>
                         </form>

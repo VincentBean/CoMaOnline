@@ -27,6 +27,12 @@
     </div>
  
     <!-- After header -->
+    @if (session('message'))
+        <br>
+        <div class="alert alert-success">
+        {{ session('message') }}
+        </div>
+    @endif
 <section>
     <div class="container-fluid">
         <div class="col-lg-11 mx-auto mt-3">
