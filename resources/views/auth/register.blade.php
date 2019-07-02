@@ -35,17 +35,23 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="float-left mr-2 custom-control custom-radio">
-                                        <input name="gender" class="custom-control-input" id="man" type="radio" value="male" checked>
+                                        <input name="gender" class="custom-control-input" id="man" type="radio" value="male">
                                         <label class="custom-control-label" for="man">
                                         <span>Man</span>
                                         </label>
                                 </div>
-                                <div class="float-left custom-control custom-radio">
+                                <div class="float-left mr-2 custom-control custom-radio">
                                     <input name="gender" class="custom-control-input" id="vrouw" type="radio" value="female">
                                     <label class="custom-control-label" for="vrouw">
                                     <span>Vrouw</span>
+                                    </label>
+                                </div>
+                                <div class="float-left mr-2 custom-control custom-radio">
+                                    <input name="gender" class="custom-control-input" id="niet" type="radio" value="notgiven" checked>
+                                    <label class="custom-control-label" for="niet">
+                                    <span>Niet opgeven</span>
                                     </label>
                                 </div>
                             </div>
