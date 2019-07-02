@@ -43,7 +43,7 @@
                             <p>€{{$timeSlot->price}} bezorgkosten</p>
                             <small>Levering op {{$timeSlot->getFullTime()}}</small>
 
-                            <h3>Betaling</h3>  
+                            {{-- <h3>Betaling</h3>  
                             <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary mb-4 active">
                                 <input type="radio" name="payment_type" value="ideal" id="ideal" autocomplete="off" checked> iDEAL
@@ -57,7 +57,7 @@
                             <label class="btn btn-secondary mb-4">
                                 <input type="radio" name="payment_type" value="paypal" id="paypal" autocomplete="off"> Paypal
                             </label>
-                            </div>                          
+                            </div>                           --}}
                         </div>
                         <div class="p-2">
                             <h3>Controleer uw bestelling</h3>      

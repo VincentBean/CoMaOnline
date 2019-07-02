@@ -34,7 +34,6 @@
                                                 <tr>
                                                     <th scope="col">Bestellingsnummer</th>
                                                     <th scope="col">Totaal prijs</th>
-                                                    <th scope="col">Betaling voldaan met</th>
                                                     <th scope="col">Datum</th>
                                                     <th scope="col">Status</th>
                                                 </tr>
@@ -44,7 +43,6 @@
                                                 <tr style="cursor: pointer;" onclick="window.location.href = '{{route('home.profiel.order', ['id' => $order->id])}}'">
                                                     <td scope="row">{{$order->id}}</td>
                                                     <td>{!!currency($order->price)!!}</td>
-                                                    <td>{{ucfirst($order->payment_type)}}</td>
                                                     <td>{{$order->created_at}}</td>
                                                     <td>In behandeling</td>
                                                 </tr>

@@ -17,10 +17,12 @@ class ShoppingCartController extends Controller
         //Lets check if the listed product has a promotion
         if ($product->promotion != null) {
             $cart = Cart::add($product->id, $product->title, $request->amount, $product->promotion->discount_price, 0, ['weight' => $product->weight, 'image' => $product->image_url]);
+            return redirect()->back()->with('message', $product->title.' '.$request->amount.'x  terwaarde van: €'.$product->promotion->discount_price.'  toegevoegd aan winkelmandje.');
         } else {
             $cart = Cart::add($product->id, $product->title, $request->amount, $product->price, 0, ['weight' => $product->weight, 'image' => $product->image_url]);
+            return redirect()->back()->with('message', $product->title.' '.$request->amount.'x terwaarde van: €'.($product->price * $request->amount).' toegevoegd aan winkelmandje.');
         }
-        return redirect()->back()->with('message', 'Product is toegevoegd aan winkelmandje');
+        
     }
 
     public function index()

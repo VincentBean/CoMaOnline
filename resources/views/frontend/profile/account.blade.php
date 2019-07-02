@@ -52,7 +52,7 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-12">
                                                     <div class="float-left mr-2 custom-control custom-radio">
                                                         <input name="gender" class="custom-control-input" id="man" type="radio" value="male" 
                                                         {{$user->customer->gender == 'male' ? 'checked' : ''}}>
@@ -60,11 +60,19 @@
                                                         <span>Man</span>
                                                         </label>
                                                     </div>
-                                                    <div class="float-left custom-control custom-radio">
+                                                    <div class="float-left mr-2 custom-control custom-radio">
                                                         <input name="gender" class="custom-control-input" id="vrouw" type="radio" value="female"
                                                         {{$user->customer->gender == 'female' ? 'checked' : ''}}>
                                                         <label class="custom-control-label" for="vrouw">
                                                         <span>Vrouw</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="float-left mr-2 custom-control custom-radio">
+                                                        <input name="gender" class="custom-control-input" id="niet" type="radio" value="notgiven"
+                                                        {{$user->customer->gender == 'notgiven' ? 'checked' : ''}}>
+                                                        <label class="custom-control-label" for="niet">
+                                                        <span>niet opgeven</span>
                                                         </label>
                                                     </div>
                                                 </div>

@@ -1,5 +1,17 @@
 @extends('layouts.frontend.master')
 @section('body')
+
+<style>
+.nav-tabs {
+    border-bottom: 1px solid #aaaaaa !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #525f7f;
+    border-color: #aaaaaa #aaaaaa #fff;
+    background-color: #fff;
+}
+</style>
 <div class="container-fluid">
 
     <div class="row">
@@ -10,7 +22,7 @@
                 <div class="card">
                     @include('layouts.frontend.process')
                         <div class="card-body">
-                            <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <ul id="delivery-days" class="nav nav-tabs justify-content-center" role="tablist">
                             @php ($i = 0)
                             @foreach($deliverySlots as $deliverySlot)
                                 <li class="nav-item">

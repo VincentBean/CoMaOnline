@@ -64,6 +64,9 @@
                                             </div>
                                             <!-- price-wrap .// -->
                                         </td>
+                                        <td>
+                                            <button class="btn btn-outline-success float-right">bijwerken</button>
+                                        </td>
                                         <td class="text-right">
                                             <a href="{{route('home.cart.delete', ['id' => $content->id])}}" class="btn btn-outline-danger">verwijder</a>
                                         </td>
@@ -71,9 +74,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="float-right" style="margin: 10px">
-                            <button class="btn btn-secondary float-right">Winkelwagen bijwerken</button>
                         </div>
                     </div>
                 </form>
