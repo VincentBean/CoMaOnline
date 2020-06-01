@@ -41,7 +41,10 @@ class CreateCategories extends Command
      */
     public function handle()
     {
-        $categoryObj = xmlToJson(simplexml_load_string(getData('categories')), false)->Category;
+        Category::truncate();
+        SubCategory::truncate();
+        SubsubCategory::truncate();
+        $categoryObj = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\categories.xml')))->Category;
 
         foreach ($categoryObj as $category) {
 

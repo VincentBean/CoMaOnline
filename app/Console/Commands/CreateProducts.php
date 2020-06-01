@@ -41,9 +41,10 @@ class CreateProducts extends Command
      */
     public function handle()
     {
+        Product::truncate();
         // xmlToJson will convert our xml to json
         // getData is a simple get request based on ENV(API_BASE_URL)
-        $productsObj = xmlToJson(simplexml_load_string(getData('products')))->Product;
+        $productsObj = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\products.xml')))->Product;
 
         foreach ($productsObj as $data) {
             // echo $data->{'@attributes'}->Id;
@@ -55,7 +56,7 @@ class CreateProducts extends Command
             $subsub_category = SubsubCategory::whereName($data->Subsubcategory)->first();
 
             //Insert product, if EAN exist it will get skipped.
-            $product = Product::firstOrCreate(['ean' => $data->EAN], ['category_id' => $category->id, 
+            $product = Product::firstOrCreate(['ean' => $data->EAN], ['category_id' => $category->id,
                 'sub_category_id' => $sub_category->id, 'subsub_category_id' => $subsub_category->id,
                 'title' => $data->Title, 'brand' => $data->Brand,
                 'short_description' => $short_description, 'full_description' => $full_description,

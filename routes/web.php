@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
  */
+
+ Route::get("/test", function () {
+    $data = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\promotions.xml')))->Promotion;
+    dd($data);
+ });
+
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');

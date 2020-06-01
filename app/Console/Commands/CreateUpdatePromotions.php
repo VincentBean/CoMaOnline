@@ -38,9 +38,10 @@ class CreateUpdatePromotions extends Command
      */
     public function handle()
     {
+        Promotion::truncate();
         // xmlToJson will convert our xml to json
         // getData is a simple get request based on ENV(API_BASE_URL)
-        $promotionObj = xmlToJson(simplexml_load_string(getData('promotions')))->Promotion;
+        $promotionObj = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\promotions.xml')))->Promotion;
 
         Promotion::truncate();
 

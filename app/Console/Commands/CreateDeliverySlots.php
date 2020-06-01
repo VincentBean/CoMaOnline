@@ -39,7 +39,8 @@ class CreateDeliverySlots extends Command
      */
     public function handle()
     {
-        $deliverySlots = xmlToJson(simplexml_load_string(getData('deliveryslots')), false)->Deliveryslot;
+        DeliverySlot::truncate();
+        $deliverySlots = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\deliveryslots.xml')))->Deliveryslot;
 
         foreach ($deliverySlots as $deliverySlot) {
 
