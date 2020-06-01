@@ -25,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $promotions = Promotion::all()->random(3);
+        $promotions = Promotion::all();
+        count($promotions) > 0
+        ? $promotions = $promotions->random(3)
+        : '';
 
         $article = Article::orderBy('created_at', 'desc')->first();
         $global_settings = DB::table('global_settings')->whereId(1)->first();

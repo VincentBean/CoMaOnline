@@ -25,50 +25,6 @@
             @endforeach
             </div>
             {{-- End of row --}}
-            <div class="card p-2">
-                <a href="#"></a>
-                <div class="text-center">
-                    <p class="font-weight-bold">Bezoek ook eens onze speciaalzaken</p>
-                </div>
-                <div class="d-inline-flex justify-content-between">
-
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <a href="#"></a>
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Speciaalzaak 1</h6>
-                            <p style="">eget dui auctor tempor nec facilisis neque</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Speciaalzaak 2</h6>
-                            <p style="">fermentum id turpis. Vestibulum vehicula metus</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Speciaalzaak 3</h6>
-                            <p style="">Nulla nec mauris eros. Sed turpis nibh, pulvinar</p>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="d-inline-flex justify-content-between wrap">
-                        <div class="span4">
-                            <img style="float:left" class="img-fluid w-25" src="https://static.ahold.com/image-optimization/cmgtcontent/media//001790400/000/001790482_002_winkelmandjeetos.png"/>
-                            <div class="content-heading"><h6>Speciaalzaak 4</h6>
-                            <p style="">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- End of card --}}
             <div class="card p-2 default-bg">
                 <a href="#"></a>
                 <form method="GET" action="{{route('search')}}">
@@ -79,7 +35,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                                 </div>
-                                <input id="searchCategory" name="q" value="{{request()->input('q')}}" class="form-control form-control-alternative" placeholder="Zoek producten..." autocomplete="off" type="text">
+                                <input id="searchCategory" name="q" value="{{ request()->input('q') }}" class="form-control form-control-alternative" placeholder="Zoek producten..." autocomplete="off" type="text">
                                 <div id="productlistCategory" class="dropdown-menu" aria-labelledby="dropdownMenuLink"
                                         style="width:500px;z-index:1000;">
 

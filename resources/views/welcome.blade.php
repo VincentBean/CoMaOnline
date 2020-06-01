@@ -25,7 +25,7 @@
         </div>
       </section>
     </div>
- 
+
     <!-- After header -->
     @if (session('message'))
         <br>
@@ -37,15 +37,6 @@
     <div class="container-fluid">
         <div class="col-lg-11 mx-auto mt-3">
             <h1>Dagaanbiedingen</h1>
-            {{-- Start row header image--}}
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="{{$global_settings->promotion_header_url}}" class="img-fluid header-image">
-                    <h2 class="header_image_text text-white font-weight-bold">{{$global_settings->promotion_title}}</h2>
-                    <p class="header_image_text_lower text-white font-weight-bold">{{$global_settings->promotion_sub_title}}</p>
-                </div>
-            </div>
-            {{-- End row header image--}}
             <div class="row no-gutter">
             @foreach($promotions as $promotion)
                 <div class="col-md-4">
@@ -83,7 +74,7 @@
 
 <script>
 $(document).ready(function(){
- 
+
  var _token = $('input[name="_token"]').val();
 
  load_data('', _token);
