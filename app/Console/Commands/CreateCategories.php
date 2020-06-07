@@ -44,7 +44,7 @@ class CreateCategories extends Command
         Category::truncate();
         SubCategory::truncate();
         SubsubCategory::truncate();
-        $categoryObj = xmlToJson(simplexml_load_string(getData('categories')))->Category;
+        $categoryObj = xmlToJson(simplexml_load_string(file_get_contents(getData('categories'))))->Category;
 
         foreach ($categoryObj as $category) {
 
