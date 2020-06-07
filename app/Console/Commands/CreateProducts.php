@@ -44,7 +44,7 @@ class CreateProducts extends Command
         Product::truncate();
         // xmlToJson will convert our xml to json
         // getData is a simple get request based on ENV(API_BASE_URL)
-        $productsObj = xmlToJson(simplexml_load_string(file_get_contents(public_path() . '\xml\products.xml')))->Product;
+        $productsObj = xmlToJson(simplexml_load_string(file_get_contents(getData('products'))))->Product;
 
         foreach ($productsObj as $data) {
             // echo $data->{'@attributes'}->Id;
