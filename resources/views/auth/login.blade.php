@@ -1,6 +1,7 @@
 @extends('layouts.frontend.auth.master')
 
 @section('body')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,6 +13,13 @@
                         <div class="form-group row">
 
                             <div class="col-md-12">
+                                <div style="background:red;text-align:center;color:white;padding:5px;margin-bottom:10px">
+                                    <ul style="list-style-type: none">
+                                        <li><strong>ADMIN LOGIN</strong></li>
+                                        <li>Username: admin@admin.com</li>
+                                        <li>Password: password</li>
+                                    </ul>
+                                </div>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
                                 placeholder="E-mail" required autocomplete="email" autofocus>
 
@@ -46,9 +54,9 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
 
-                    
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8">
